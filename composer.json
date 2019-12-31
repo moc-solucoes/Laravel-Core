@@ -2,6 +2,7 @@
   "name": "moc-solucoes/laravel-core",
   "description": "Módulo de Principal no laravel.",
   "type": "library",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "MOC Soluções",
