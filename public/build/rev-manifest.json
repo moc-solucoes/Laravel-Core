@@ -1,0 +1,11 @@
+{
+  "module/shared/css/able.layout.externo.css": "module/shared/css/able-62b3e97599.layout.externo.css",
+  "module/shared/css/able.layout.interno.css": "module/shared/css/able-4ed25562a2.layout.interno.css",
+  "module/shared/css/datatable.css": "module/shared/css/datatable-8ab6615137.css",
+  "module/shared/css/select2.css": "module/shared/css/select2-3ee83aa8b9.css",
+  "module/shared/js/able.layout.externo.js": "module/shared/js/able-3a6f9adb75.layout.externo.js",
+  "module/shared/js/able.layout.interno.js": "module/shared/js/able-5422888188.layout.interno.js",
+  "module/shared/js/datatable.js": "module/shared/js/datatable-a1da30e30b.js",
+  "module/shared/js/endereco.js": "module/shared/js/endereco-987c73f5d1.js",
+  "module/shared/js/select2.js": "module/shared/js/select2-b198982ecd.js"
+}

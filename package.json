@@ -1,0 +1,29 @@
+{
+    "name": "Core",
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "version": "1.0.0",
+    "description": "Scripts para funcionamento do módulo principal",
+    "main": "gulpfile.js",
+    "author": "Maike Oliveira",
+    "license": "ISC",
+    "dependencies": {
+        "datatables.net": "^1.10.19",
+        "datatables.net-bs4": "^1.10.19",
+        "feather-icons": "^4.21.0",
+        "font-awesome": "^4.7.0",
+        "laravel-elixir": "^6.0.0-18",
+        "tempusdominus-bootstrap-4": "^5.1.2"
+    },
+    "devDependencies": {
+        "laravel-elixir-remove": "^0.2.1"
+    }
+}

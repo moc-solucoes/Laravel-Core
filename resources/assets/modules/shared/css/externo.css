@@ -1,0 +1,44 @@
+
+/** MOC Changes */
+#carousel-principal .carousel-item > img {
+    max-height: 350px;
+    height: 350px;
+    min-width: 100%;
+}
+
+#outros-destaques .carousel-item img {
+    max-height: 250px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    min-width: 100%;
+}
+
+.bg-theme1, .bg-pms, .bg-moc {
+    background-color: #29548E !important;
+}
+
+.text-theme1, .text-pms, .text-moc {
+    color: #29548E !important;
+}
+
+#carousel-principal .carousel-caption, #outros-destaques .carousel-caption {
+    text-align: left !important;
+    left: 5%;
+}
+
+#carousel-principal .carousel-caption span, #outros-destaques .carousel-caption span {
+    margin: -2px;
+}
+
+#carousel-principal .carousel-caption p, #outros-destaques .carousel-caption p {
+    margin: -6px;
+}
+
+span.recentes, span.populares  {
+    position: absolute !important;
+    margin-top: -15px !important;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    z-index: 999999 !important;
+}
