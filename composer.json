@@ -1,35 +1,36 @@
 {
-    "name": "moc-solucoes/laravel-core",
-    "description": "Módulo de Principal no laravel.",
-    "type": "project",
-    "authors": [
-        {
-            "name": "MOC Soluções",
-            "email": "contato@mocsolucoes.com.br"
-        }
-    ],
-    "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories",
-            "database/migrations"
-        ],
-        "psr-4": {
-            "MOCUtils\\Helpers\\": "app/Http/Helpers/",
-            "MOCSolutions\\Core\\": "src/"
-        },
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "MOCSolutions\\Core\\AppServiceProvider"
-                ],
-                "aliases": {
-                }
-            }
-        }
-    },
-    "require": {
-        "laravel/framework": "^6.0",
-        "php": "^7.2.0"
+  "name": "moc-solucoes/laravel-core",
+  "description": "Módulo de Principal no laravel.",
+  "type": "library",
+  "authors": [
+    {
+      "name": "MOC Soluções",
+      "email": "contato@mocsolucoes.com.br",
+      "homepage": "https://www.mocsolucoes.com.br"
     }
+  ],
+  "autoload": {
+    "classmap": [
+      "database/seeds",
+      "database/factories",
+      "database/migrations"
+    ],
+    "psr-4": {
+      "MOCUtils\\Helpers\\": "app/Http/Helpers/",
+      "MOCSolutions\\Core\\": "src/"
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "MOCSolutions\\Core\\AppServiceProvider"
+        ],
+        "aliases": {
+        }
+      }
+    }
+  },
+  "require": {
+    "laravel/framework": "^6.0",
+    "php": "^7.2.0"
+  }
 }
