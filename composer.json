@@ -7,7 +7,8 @@
     {
       "name": "MOC Soluções",
       "email": "contato@mocsolucoes.com.br",
-      "homepage": "https://www.mocsolucoes.com.br"
+      "homepage": "https://www.mocsolucoes.com.br",
+      "role": "CEO,Developer"
     }
   ],
   "autoload": {
@@ -31,7 +32,7 @@
     }
   },
   "require": {
-    "laravel/framework": "^6.0",
-    "php": "^7.2.0"
+    "php": ">=7.2.0",
+    "laravel/framework": "^6.9"
   }
 }
