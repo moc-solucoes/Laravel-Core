@@ -17,7 +17,6 @@
       "database/migrations"
     ],
     "psr-4": {
-      "MOCUtils\\Helpers\\": "app/Http/Helpers/",
       "MOCSolutions\\Core\\": "src/"
     },
     "extra": {
