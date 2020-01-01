@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        require_once __DIR__ . DIRECTORY_SEPARATOR . 'Helpers' . DIRECTORY_SEPARATOR . "Functions.php";
         $this->loadRoutesFrom(__DIR__ . DS . '..' . DS . 'routes' . DS . 'web.php');
         $this->loadViewsFrom(__DIR__ . DS . 'Views', 'Core');
         $this->loadMigrationsFrom(__DIR__ . DS . '..' . DS . 'database' . DS . 'migrations');
