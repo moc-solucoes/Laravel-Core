@@ -14,9 +14,9 @@ interface Crud
 
     public function cadastro(): View;
 
-    public function salvar(): View;
+    public function salvar();
 
     public function editar(int $id): View;
 
-    public function salvarEdicao(int $id): View;
+    public function salvarEdicao(int $id);
 }
