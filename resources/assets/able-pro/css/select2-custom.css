@@ -1,0 +1,31 @@
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    /*color: #fff;*/
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    background: #fff;
+    background-clip: padding-box;
+    color: #495057;
+    border-radius: 2px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    font-weight: 400;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #000 transparent transparent transparent;
+}
+
+.bg-danger-dt {
+    background-color: rgba(255, 82, 82, 0.22);
+}
+
+.bg-success-dt {
+    background-color: rgba(156, 204, 101, 0.22);
+}
+
+.bg-primary-dt {
+    background-color: rgba(68, 138, 255, 0.22);
+}

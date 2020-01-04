@@ -20,6 +20,7 @@
         "datatables.net-bs4": "^1.10.19",
         "feather-icons": "^4.21.0",
         "font-awesome": "^4.7.0",
+        "gulp": "^3.9.1",
         "laravel-elixir": "^6.0.0-18",
         "tempusdominus-bootstrap-4": "^5.1.2"
     },

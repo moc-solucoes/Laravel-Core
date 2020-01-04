@@ -74,6 +74,7 @@ elixir(function (mix) {
     mix.styles([
         '../able-pro/bower_components/select2/css/select2.min.css',
         '../able-pro/css/style.css',
+        '../able-pro/css/select2-custom.css',
     ], './public/module/shared/css/select2.css');
 
     mix.scripts([
