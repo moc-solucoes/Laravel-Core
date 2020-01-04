@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Interfaces;
+namespace MOCSolutions\Core\Interfaces;
 
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Interface Datatable

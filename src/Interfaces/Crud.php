@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Interfaces;
+namespace MOCSolutions\Core\Interfaces;
 
 use Illuminate\View\View;
 
