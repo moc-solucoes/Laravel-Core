@@ -45,7 +45,7 @@
                     <a href="{{route('inicio')}}">
                         {{--                        <img class="img-fluid" src="{{asset('able-pro/images/logo.png')}}"/>--}}
                         {{--<img class="img-fluid" src="http://mocsolucoes.com.br/logo" width="110px" />--}}
-                        <img class="img-fluid" src="{{asset("images/logo-pms-able.png")}}" width="110px"/>
+                        <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px"/>
                     </a>
                     <a class="mobile-options waves-effect waves-light">
                         <i class="feather icon-more-horizontal"></i>

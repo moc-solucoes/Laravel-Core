@@ -19,4 +19,6 @@ interface Crud
     public function editar(int $id): View;
 
     public function salvarEdicao(int $id);
+
+    public function excluir(int $id);
 }
