@@ -3,20 +3,21 @@ $(document).ready(function () {
      * Correio preencher com o cep.
      */
     $(".cep").blur(function () {
-        $(".estado").focus().val("Carregando...");
-        $(".cidade").focus().val("Carregando...");
-        $(".bairro").focus().val("Carregando...");
-        $(".endereco").focus().val("Carregando...");
+        var elemento = $(this).closest('.endereco');
+        elemento.find('.estado').focus().val("Carregando...");
+        elemento.find('.cidade').focus().val("Carregando...");
+        elemento.find('.bairro').focus().val("Carregando...");
+        elemento.find('.endereco').focus().val("Carregando...");
 
         var cepLimpo = $(this).val().replace("-", "").replace(".", "");
 
         $.getJSON("https://viacep.com.br/ws/" + cepLimpo + "/json", function (data) {
-            $(".estado").val(data.uf);
-            $(".cidade").val(data.localidade);
-            $(".bairro").val(data.bairro);
-            $(".endereco").val(data.logradouro);
+            elemento.find('.estado').val(data.uf);
+            elemento.find('.cidade').val(data.localidade);
+            elemento.find('.bairro').val(data.bairro);
+            elemento.find('.endereco').val(data.logradouro);
         }).fail(function (err) {
-            $(".estado, .cidade, .bairro, .endereco").val("Não foi possível carregar.").removeAttr("readonly");
+            elemento.find(".estado, .cidade, .bairro, .endereco").val("Não foi possível carregar.").removeAttr("readonly");
         });
     });
 });
