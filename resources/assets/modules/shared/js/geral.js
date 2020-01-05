@@ -1,5 +1,6 @@
 function initDocument() {
     $('[data-toggle="tooltip"]').tooltip();
+    $('.tooltip').tooltip();
     $('body').tooltip({selector: '.dataTable label [title]'});
 }
 
