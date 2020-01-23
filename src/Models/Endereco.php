@@ -43,10 +43,9 @@ class Endereco extends Model
         $this->setAddress();
 
         $mapApi = (new MapQuestApi())->address($this->address);
-
         $this->request = json_encode($mapApi);
-        $this->lat = $mapApi->results->locations[0]->latLng->lat;
-        $this->lng = $mapApi->results->locations[0]->latLng->lng;
 
+        $this->lat = $mapApi->results[0]->locations[0]->latLng->lat;
+        $this->lng = $mapApi->results[0]->locations[0]->latLng->lng;
     }
 }
