@@ -22,7 +22,12 @@ class NclEnderecos extends Migration
             $table->string('logradouro')->nullable();
             $table->string('numero')->nullable();
             $table->string('complemento')->nullable();
-            $table->timestamp('dt_criacao')->useCurrent();
+
+            $table->string('address')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->text('request')->nullable();
+            $table->timestamps();
             $table->softDeletes();
         });
     }
