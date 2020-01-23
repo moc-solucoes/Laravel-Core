@@ -31,16 +31,19 @@ class Endereco extends Model
 {
     protected $table = 'ncl_enderecos';
 
-    public function formatToApi()
+    public function setAddress()
     {
-        return $this->logradouro . ', ' . $this->numero . ', ' . $this->bairro . ', ' . $this->cidade . ', ' . $this->estado . ', Brasil';
+        $this->address = $this->logradouro . ', ' . $this->numero . ', ' . $this->bairro . ', ' . $this->cidade . ', ' . $this->estado . ', Brasil';
     }
 
     public function setCoordenate()
     {
         if (!env('MAPQUESTAPI_KEY')) throw new \Exception("Set in your <code>.env</code> the MAPQUESTAPI_KEY.");
 
+        $this->setAddress();
+
         $mapApi = (new MapQuestApi())->address($this->address);
+
         $this->request = json_encode($mapApi);
         $this->lat = $mapApi->results->locations[0]->latLng->lat;
         $this->lng = $mapApi->results->locations[0]->latLng->lng;
