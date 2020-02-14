@@ -8,15 +8,15 @@ use MOCUtils\Helpers\SlackException;
 
 class MapQuestApi
 {
-    private  $valores;
-    private $client;
-    private $options;
-    private $sufixRoute;
+    protected $valores;
+    protected $client;
+    protected $options;
+    protected $sufixRoute;
 
     public function __construct()
     {
         $this->valores = (object)$this->valores;
-        $this->valores->apiUrl = 'http://www.mapquestapi.com/geocoding/v1/';
+        $this->valores->apiUrl = 'http://www.mapquestapi.com/';
 
         $this->options = ['headers' =>
             [
@@ -37,7 +37,7 @@ class MapQuestApi
      */
     public function address($address)
     {
-        $this->sufixRoute = "address?key=" . env('MAPQUESTAPI_KEY') . "&location=" . $address;
+        $this->sufixRoute = "geocoding/v1/address?key=" . env('MAPQUESTAPI_KEY') . "&location=" . $address;
 
         try {
             $res = $this->client->post($this->valores->apiUrl . $this->sufixRoute);
@@ -46,5 +46,13 @@ class MapQuestApi
         } catch (\Exception $e) {
             throw new SlackException($e->getMessage());
         }
+    }
+
+    /**
+     * @param $object
+     */
+    public function setObject($object)
+    {
+        $this->options["body"] = json_encode($object);
     }
 }
