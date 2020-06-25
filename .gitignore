@@ -13,4 +13,4 @@ yarn-error.log
 .env
 .phpunit.result.cache
 package-lock.json
-composer-lock.json
+composer.lock
