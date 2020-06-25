@@ -18,7 +18,8 @@
     ],
     "psr-4": {
       "MOCSolutions\\Core\\": "src/"
-    },
+    }
+  },
     "extra": {
       "laravel": {
         "providers": [
@@ -27,8 +28,7 @@
         "aliases": {
         }
       }
-    }
-  },
+    },
   "require": {
     "php": ">=7.0.1",
     "laravel/framework": ">=5.6",
