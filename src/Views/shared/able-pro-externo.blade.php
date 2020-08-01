@@ -43,7 +43,7 @@
                     <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#">
                         <i class="feather icon-toggle-right"></i>
                     </a>
-                    <a href="#">
+                    <a href="{{route('/')}}">
                         <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px"/>
                     </a>
                     <a class="mobile-options waves-effect waves-light">
