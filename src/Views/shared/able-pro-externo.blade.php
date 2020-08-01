@@ -43,8 +43,8 @@
                     <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#">
                         <i class="feather icon-toggle-right"></i>
                     </a>
-                    <a href="{{route('/')}}">
-                        <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px"/>
+                    <a href="/">
+                        <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px" alt=""/>
                     </a>
                     <a class="mobile-options waves-effect waves-light">
                         <i class="feather icon-more-horizontal"></i>
@@ -132,31 +132,26 @@
         <ul class="iew-download">
             <li>
                 <a href="http://www.google.com/chrome/">
-                    <img src="../files/assets/images/browser/chrome.png" alt="Chrome">
                     <div>Chrome</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="../files/assets/images/browser/firefox.png" alt="Firefox">
                     <div>Firefox</div>
                 </a>
             </li>
             <li>
                 <a href="http://www.opera.com">
-                    <img src="../files/assets/images/browser/opera.png" alt="Opera">
                     <div>Opera</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.apple.com/safari/">
-                    <img src="../files/assets/images/browser/safari.png" alt="Safari">
                     <div>Safari</div>
                 </a>
             </li>
             <li>
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="../files/assets/images/browser/ie.png" alt="">
                     <div>IE (9 & above)</div>
                 </a>
             </li>
