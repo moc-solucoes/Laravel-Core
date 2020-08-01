@@ -2,16 +2,16 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-    <title>Gestor de projetos - MOC Soluções</title>
+    <title>@yield('title') {{isset($gTitle) ? $gTitle.' | ' : ''}} {{env('APP_NAME', 'Projetos - MOC Soluções')}}</title>
     <!--[if lt IE 10]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Meta -->
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="MOC Soluções."/>
+    <meta name="description" content="{{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
     <meta name="keywords"
           content="admin projetos, bootstrap admin projetos, bootstrap dashboard, admin theme, dashboard projetos, bootstrap dashboard projetos, bootstrap admin panel, dashboard theme, best admin projetos, dashboard theme, website projetos, bootstrap 4 admin projetos">
     <meta name="Author" content="Maike Oliveira Carvalho - MOC Soluções"/>
@@ -43,7 +43,7 @@
                         <i class="feather icon-toggle-right"></i>
                     </a>
                     <a href="#">
-                        <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px" />
+                        <img class="img-fluid" src="{{asset("images/logo.png")}}" width="110px"/>
                     </a>
                     <a class="mobile-options waves-effect waves-light">
                         <i class="feather icon-more-horizontal"></i>
@@ -60,8 +60,8 @@
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
                 <!-- Begin: Menu -->
-                @include('shared._able-menu-externo')
-                <!-- End: Menu -->
+            @include('shared._able-menu-externo')
+            <!-- End: Menu -->
 
                 <div class="pcoded-content">
                     <div class="page-header">
@@ -110,7 +110,7 @@
         </div>
         <div class="footer">
             <p class="text-center m-b-0 text-white">
-                2014 &copy; MOC Soluções - Todos os direitos reservados <br/>
+                2014 &copy; <a target="_blank" class="text-white" href="https://mocsolucoes.com.br">MOC Soluções</a> - Todos os direitos reservados <br/>
                 Vers&atilde;o 1.0.0
             </p>
         </div>
@@ -178,7 +178,7 @@
     })(window, document, 'script',
         'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-28399038-1', 'auto');
+    ga('create', '{{env('GOOGLE_ANALYTICS')}}', 'auto');
     ga('send', 'pageview');
 
     (function (a, b, c) {

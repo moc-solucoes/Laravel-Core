@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-    <title>Sistema Odontológico - MOC Soluções</title>
+    <title>@yield('title') {{isset($gTitle) ? $gTitle.' | ' : ''}} {{env('APP_NAME', 'Projetos - MOC Soluções')}}</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="MOC Soluções."/>
+    <meta name="description" content="{{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
     <meta name="keywords"
           content="moc, desenvolvimento, soluções, redmine, gestão, ferramenta, teamspeak, app, sites, sistemas">
     <meta name="Author" content="Maike Oliveira Carvalho - MOC Soluções"/>
@@ -415,7 +415,7 @@
         </div>
         <div class="footer bg-moc text-white p-2">
             <p class="text-center m-b-0">
-                2014 &copy; MOC Soluções - Todos os direitos reservados <br/>
+                2014 &copy; <a target="_blank" class="text-white" href="https://mocsolucoes.com.br">MOC Soluções</a> - Todos os direitos reservados <br/>
                 Vers&atilde;o 1.0.0
             </p>
         </div>

@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-    <title>@yield('title') Área Administrativa</title>
+    <title>@yield('title') {{isset($gTitle) ? ' | '.$gTitle.' | ' : ''}} {{env('APP_NAME', 'Projetos - MOC Soluções')}}</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -384,7 +384,7 @@
         </div>
         <div class="footer bg-moc text-white p-2">
             <p class="text-center m-b-0">
-                2014 &copy; <a target="_blank" class="text-white" href="http://mocsolucoes.com.br">MOC Soluções</a> -
+                2014 &copy; <a target="_blank" class="text-white" href="https://mocsolucoes.com.br">MOC Soluções</a> -
                 Todos os direitos reservados <br/>
                 Vers&atilde;o 1.0.0
             </p>
@@ -393,7 +393,7 @@
 </div>
 
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.interno.js'))}}"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142317352-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id='{{env('GOOGLE_ANALYTICS')}}'"></script>
 <script type="text/javascript">
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -404,7 +404,7 @@
     }
 
     gtag('js', new Date());
-    gtag('config', 'UA-142317352-1');
+    gtag('config', '{{env('GOOGLE_ANALYTICS')}}');
 </script>
 
 @yield('js')
