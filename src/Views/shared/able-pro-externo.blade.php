@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description"
-          content="{{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
+          content="@yield('description') {{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
     <meta name="keywords"
           content="admin projetos, bootstrap admin projetos, bootstrap dashboard, admin theme, dashboard projetos, bootstrap dashboard projetos, bootstrap admin panel, dashboard theme, best admin projetos, dashboard theme, website projetos, bootstrap 4 admin projetos">
     <meta name="Author" content="Maike Oliveira Carvalho - MOC Soluções"/>
