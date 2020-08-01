@@ -167,31 +167,42 @@
 <![endif]-->
 
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
-<script async src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-<script async>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script',
-        'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', '{{env('GOOGLE_ANALYTICS')}}', 'auto');
-    ga('send', 'pageview');
+@if(env('VLIBRAS', false))
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script async src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+@endif
+@if(env('GOOGLE_ANALYTICS', false))
+    <script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
 
-    (function (a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        if (!a.getElementById(c)) a = a.createElement(b), a.id = c, a.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1", d.parentNode.insertBefore(a, d)
-    })(document, "script", "facebook-jssdk");
-</script>
+        ga('create', '{{env('GOOGLE_ANALYTICS')}}', 'auto');
+        ga('send', 'pageview');
+
+        (function (a, b, c) {
+            var d = a.getElementsByTagName(b)[0];
+            if (!a.getElementById(c)) a = a.createElement(b), a.id = c, a.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1", d.parentNode.insertBefore(a, d)
+        })(document, "script", "facebook-jssdk");
+    </script>
+@endif
 
 @yield('js')
 </body>
