@@ -11,7 +11,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="{{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
+    <meta name="description"
+          content="{{isset($gDescription) ? $gDescription : (isset($gTitle) ? $gTitle.' | ' : env('APP_NAME', 'Projetos - MOC Soluções'))}}"/>
     <meta name="keywords"
           content="admin projetos, bootstrap admin projetos, bootstrap dashboard, admin theme, dashboard projetos, bootstrap dashboard projetos, bootstrap admin panel, dashboard theme, best admin projetos, dashboard theme, website projetos, bootstrap 4 admin projetos">
     <meta name="Author" content="Maike Oliveira Carvalho - MOC Soluções"/>
@@ -110,7 +111,8 @@
         </div>
         <div class="footer">
             <p class="text-center m-b-0 text-white">
-                2014 &copy; <a target="_blank" class="text-white" href="https://mocsolucoes.com.br">MOC Soluções</a> - Todos os direitos reservados <br/>
+                2014 &copy; <a target="_blank" class="text-white" href="https://mocsolucoes.com.br">MOC Soluções</a> -
+                Todos os direitos reservados <br/>
                 Vers&atilde;o 1.0.0
             </p>
         </div>
@@ -165,7 +167,11 @@
 <![endif]-->
 
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
+<script async src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<script async>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
