@@ -163,6 +163,9 @@
 
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
 
+@if(env('ADSENSE', false))
+    <script data-ad-client="ca-pub-{{env('ADSENSE')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+@endif
 @if(env('VLIBRAS', false))
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
