@@ -52,7 +52,7 @@
                 </div>
                 <div class="navbar-container container-fluid">
                     @include('Core::shared._nav-left')
-                    @include('Core::shared._nav-right')
+                    @include('shared._nav-right')
                 </div>
             </div>
         </nav>
@@ -164,7 +164,8 @@
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
 
 @if(env('GOOGLE_ADSENSE', false))
-    <script data-ad-client="ca-pub-{{env('GOOGLE_ADSENSE')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-{{env('GOOGLE_ADSENSE')}}" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 @endif
 @if(env('VLIBRAS', false))
     <div vw class="enabled">
