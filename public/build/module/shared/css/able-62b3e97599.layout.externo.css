@@ -31779,6 +31779,16 @@ input[readonly] {
 }
 
 
+.conteudo p {
+  font-size: 150%;
+}
+
+@media only screen and (max-width: 600px) {
+  .pcoded-navbar {
+    top: 40px;
+  }
+}
+
 /** MOC Changes */
 #carousel-principal .carousel-item > img {
     max-height: 350px;
