@@ -19,8 +19,6 @@
 
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
     <link rel="stylesheet" href="{{asset(elixir('module/shared/css/able.layout.externo.css'))}}" type="text/css"
           media="all">
 
@@ -163,6 +161,13 @@
 
 <script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
 
+@if(env('INFO_LINKS', false))
+    <script type="text/javascript">
+        var infolinks_pid = '{{env('INFO_LINKS')}}';
+        var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+@endif
 @if(env('GOOGLE_ADSENSE', false))
     <script data-ad-client="ca-pub-{{env('GOOGLE_ADSENSE')}}" async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -174,8 +179,8 @@
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
+    <script async src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script async>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 @endif

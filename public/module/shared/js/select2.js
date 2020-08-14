@@ -174,5 +174,3 @@ setTimeout(function () {
         });
     });
 }, 350);
-
-//# sourceMappingURL=select2.js.map

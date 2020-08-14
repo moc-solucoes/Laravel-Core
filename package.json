@@ -25,6 +25,10 @@
         "tempusdominus-bootstrap-4": "^5.1.2"
     },
     "devDependencies": {
-        "laravel-elixir-remove": "^0.2.1"
+        "cross-env": "^7.0",
+        "laravel-elixir-remove": "^0.2.1",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "laravel-mix": "^5.0.1"
     }
 }
