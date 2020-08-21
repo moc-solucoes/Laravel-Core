@@ -1,8 +1,9 @@
 {
   "name": "moc-solucoes/laravel-core",
-  "description": "Módulo de Principal no laravel.",
   "type": "library",
-  "version": "1.0.5",
+  "description": "Módulo de Principal no laravel.",
+  "license": "GNU",
+  "homepage": "https://www.mocsolucoes.com.br",
   "authors": [
     {
       "name": "MOC Soluções",
