@@ -2,7 +2,7 @@
   "name": "moc-solucoes/laravel-core",
   "type": "library",
   "description": "Módulo de Principal no laravel.",
-  "license": "AGPL-3.0-only",
+  "license": "AGPL-3.0",
   "homepage": "https://www.mocsolucoes.com.br",
   "authors": [
     {
