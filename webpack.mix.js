@@ -65,13 +65,13 @@ mix.scripts([
 
 mix.styles([
     'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
-], 'public/module/shared/css/datatable.css');
+], 'public/vendor/mocsolucoes/core/css/datatable.css');
 
 mix.scripts([
     'node_modules/datatables.net/js/jquery.dataTables.js',
     'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js',
     'resources/assets/modules/shared/js/DataTables.js',
-], 'public/module/shared/js/datatable.js');
+], 'public/vendor/mocsolucoes/core/js/datatable.js');
 
 mix.styles([
     'resources/assets/able-pro/bower_components/select2/css/select2.min.css',
@@ -97,8 +97,8 @@ mix
 mix.version([
     'public/module/shared/css/able.layout.interno.css',
     'public/module/shared/js/able.layout.interno.js',
-    'public/module/shared/css/datatable.css',
-    'public/module/shared/js/datatable.js',
+    'public/vendor/mocsolucoes/core/css/datatable.css',
+    'public/vendor/mocsolucoes/core/js/datatable.js',
     'public/module/shared/css/able.layout.externo.css',
     'public/module/shared/js/able.layout.externo.js',
     'public/module/shared/css/select2.css',

@@ -17,10 +17,10 @@ function RenderDataTableOnGet(route, translate, columns, CallBack, nome) {
     });
 }
 
-function RenderDataTableServerSideOnPost(route, translate, columns, CallBack, nome) {
+function RenderDataTableServerSideOnPost(route, translate, columns, CallBack, nome, post) {
     nome = nome == null ? '.dataTable' : nome;
 
-    var config = getConfigBase(translate);
+    var config = getConfigBase(translate, post);
 
     config.ajax.url = route;
     config.columns = columns;
@@ -47,3 +47,23 @@ function getConfigBase(translate, post) {
 
     return configBase;
 }
+
+$(document).ready(function () {
+    function excluir() {
+        var url = rotaExcluir + '/' + $(this).data('id');
+        $(this).addClass('disabled');
+        $(this).addAttr('disabled');
+        window.location.replace(url);
+    }
+
+    function confirmaExclusao() {
+        var registro = $(this).data('registro');
+        var id = $(this).data('id');
+
+        $('.modalDetalheRegistro').html(registro);
+        $('.confirmaExclusao').data('id', id);
+    }
+
+    $(document).on('click', '.btn-excluir', confirmaExclusao);
+    $(document).on('click', '.confirmaExclusao', excluir);
+});
