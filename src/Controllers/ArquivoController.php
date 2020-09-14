@@ -41,7 +41,12 @@ class ArquivoController extends Controller
         if ($helperController->getErrors()->count()) {
             return response()->json(['error' => true, 'message' => $helperController->getErrors()->implode(' | ')]);
         } else {
-            return response()->json(['error' => false, 'data' => ['arquivo' => $retorno, 'message' => "Arquivo <code>" . @$retorno->nome . "</code> cadastrado com sucesso."]]);
+            return response()->json([
+                'error' => false,
+                'data' => $retorno->id,
+                'arquivo' => $retorno,
+                'message' => "Arquivo <code>" . @$retorno->nome . "</code> cadastrado com sucesso."
+            ]);
         }
     }
 
@@ -55,9 +60,10 @@ class ArquivoController extends Controller
             $arquivoId = request()->get('data');
 
             $arquivo = Arquivo::find($arquivoId);
+            $arquivoReturn = clone $arquivo;
             $arquivo->delete();
 
-            return $arquivo;
+            return $arquivoReturn;
         });
 
         $retorno = $helperController->getObject();
