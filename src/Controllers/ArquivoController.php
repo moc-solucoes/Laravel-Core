@@ -29,7 +29,7 @@ class ArquivoController extends Controller
             $arquivo->tipo = $file->getMimeType();
             $arquivo->tamanho = $file->getSize();
             $arquivo->extensao = $file->extension();
-            $arquivo->url = storage_path() . DS . 'core' . DS . 'uploads' . DS . $fileName;
+            $arquivo->url = $fileName;
             $file->move(storage_path() . DS . 'core' . DS . 'uploads', $fileName);
             $arquivo->save();
 
@@ -99,9 +99,7 @@ class ArquivoController extends Controller
      */
     public function retornaImagem($url, $externo = false)
     {
-        $local = $externo === true ?
-            env("STORAGE") . 'imagens' . DS . 'exportacao' . DS . 'imagens' . DS . $url
-            : env("STORAGE") . 'imagens' . DS . $url;
+        $local = storage_path() . DS . 'core' . DS . 'uploads' . DS . $url;
 
         if (file_exists($local)) {
             $file = file_get_contents($local);
@@ -118,7 +116,7 @@ class ArquivoController extends Controller
      */
     public function retornaArquivo($url)
     {
-        $local = env("STORAGE") . 'arquivos' . DS . $url;
+        $local = storage_path() . DS . 'core' . DS . 'uploads' . DS . $url;
 
         if (file_exists($local)) {
             $file = file_get_contents($local);
@@ -126,7 +124,7 @@ class ArquivoController extends Controller
             return redirect()->route('error.404');
         }
 
-        $documento = (new Documento())->getByNomeLink($url);
+        $documento = (new Arquivo())->getByUrl($url);
 
         $local = $documento->contentType == 'application/pdf' ? 'inline' : 'attachment';
 

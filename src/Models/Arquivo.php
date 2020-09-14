@@ -30,4 +30,9 @@ class Arquivo extends Model
     protected static $logOnlyDirty = true;
 
     use SoftDeletes, LogsActivity;
+
+    public function getByUrl($url)
+    {
+        return $this->where('url', $url)->first();
+    }
 }
