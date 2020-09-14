@@ -39,14 +39,9 @@ class ArquivoController extends Controller
         $retorno = $helperController->getObject();
 
         if ($helperController->getErrors()->count()) {
-            return response()->json(['error' => true, 'message' => $helperController->getErrors()->implode(' | ')]);
+            return response()->setStatusCode(500, $helperController->getErrors()->implode(' | '))->json(['error' => true, 'message' => $helperController->getErrors()->implode(' | ')]);
         } else {
-            return response()->json([
-                'error' => false,
-                'data' => $retorno->id,
-                'arquivo' => $retorno,
-                'message' => "Arquivo <code>" . @$retorno->nome . "</code> cadastrado com sucesso."
-            ]);
+            return response()->json($retorno->id);
         }
     }
 
