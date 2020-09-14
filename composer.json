@@ -21,18 +21,19 @@
       "MOCSolutions\\Core\\": "src/"
     }
   },
-    "extra": {
-      "laravel": {
-        "providers": [
-          "MOCSolutions\\Core\\AppServiceProvider"
-        ],
-        "aliases": {
-        }
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MOCSolutions\\Core\\AppServiceProvider"
+      ],
+      "aliases": {
       }
-    },
+    }
+  },
   "require": {
     "php": ">=7.0.1",
     "laravel/framework": ">=5.6",
-    "moc-solucoes/moc-uteis": "dev-master"
+    "moc-solucoes/moc-uteis": "dev-master",
+    "spatie/laravel-activitylog": "^3.15.0"
   }
 }

@@ -12,6 +12,19 @@ const mix = require('laravel-mix');
  */
 
 mix.styles([
+    'resources/assets/filepond/filepond.css',
+    'resources/assets/filepond/custom.css',
+], 'public/vendor/filepond/css.css');
+
+mix.scripts([
+    'resources/assets/filepond/filepond.min.js',
+    'resources/assets/filepond/filepond.jquery.js',
+    'resources/assets/filepond/filepond-plugin-file-validate-size.js',
+    'resources/assets/filepond/filepond-plugin-file-validate-type.js',
+    'resources/assets/filepond/custom.js',
+], 'public/vendor/filepond/js.js');
+
+mix.styles([
     'node_modules/font-awesome/css/font-awesome.css',
     'resources/fonts/feather/css/feather.css',
     'resources/fonts/icofont/css/icofont.css',
