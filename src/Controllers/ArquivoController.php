@@ -15,6 +15,7 @@ use MOCUtils\Helpers\SlackException;
 class ArquivoController extends Controller
 {
     /**
+     * Permission[administrar.arquivos]
      * @return \Illuminate\Http\JsonResponse
      */
     public function uploadAsync()
@@ -27,7 +28,7 @@ class ArquivoController extends Controller
             $fileName = uniqid() . '-' . $file->getClientOriginalName();
             $arquivo->tipo = $file->getMimeType();
             $arquivo->tamanho = $file->getSize();
-            $arquivo->extensao = $file->getExtension();
+            $arquivo->extensao = $file->extension();
             $arquivo->url = storage_path() . DS . 'core' . DS . 'uploads' . DS . $fileName;
             $file->move(storage_path() . DS . 'core' . DS . 'uploads', $fileName);
             $arquivo->save();
@@ -54,9 +55,6 @@ class ArquivoController extends Controller
             $arquivoId = request()->get('data');
 
             $arquivo = Arquivo::find($arquivoId);
-
-            if ($arquivo->dispensaId) throw new SlackException("Arquivo não pode ser excluído pois já se encontra vinculado a uma dispensa.");
-
             $arquivo->delete();
 
             return $arquivo;
@@ -67,7 +65,7 @@ class ArquivoController extends Controller
         if ($helperController->getErrors()->count()) {
             return response()->json(['error' => true, 'message' => $helperController->getErrors()->implode(' | ')]);
         } else {
-            return response()->json(['error' => false, 'data' => $retorno, 'message' => "Arquivo <code>" . @$retorno->nome . "</code> excluído com sucesso."]);
+            return response()->json(['error' => false, 'data' => $retorno->id, 'arquivo' => $retorno, 'message' => "Arquivo <code>" . @$retorno->nome . "</code> excluído com sucesso."]);
         }
     }
 
