@@ -21,7 +21,7 @@ class ArquivoController extends Controller
     public function uploadAsync()
     {
         $helperController = new HelperController(function () {
-            $file = request()->file('anexo');
+            $file = request()->anexo[0];
 
             $arquivo = new Arquivo();
             $arquivo->nome = $file->getClientOriginalName();
