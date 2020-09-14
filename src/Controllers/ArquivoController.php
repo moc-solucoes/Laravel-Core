@@ -126,7 +126,7 @@ class ArquivoController extends Controller
         return response()->make($file, 200, [
             'Content-Type' => $documento->contentType,
             'Content-Length' => strlen($file),
-            'Content-Disposition' => $local . '; filename="' . $documento->nome . '.' . $documento->extensao . '"'
+            'Content-Disposition' => $local . '; filename="' . $documento->nome . '"'
         ]);
     }
 
