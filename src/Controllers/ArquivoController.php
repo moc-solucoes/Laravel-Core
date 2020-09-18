@@ -124,7 +124,7 @@ class ArquivoController extends Controller
         $local = $documento->contentType == 'application/pdf' ? 'inline' : 'attachment';
 
         return response()->make($file, 200, [
-            'Content-Type' => $documento->contentType,
+//            'Content-Type' => $documento->contentType,
             'Content-Length' => strlen($file),
             'Content-Disposition' => $local . '; filename="' . $documento->nome . '"'
         ]);

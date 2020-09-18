@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset(elixir('module/shared/css/able.layout.interno.css'))}}" type="text/css"
           media="all">
     @yield('css')
+    @stack('css')
 </head>
 
 <body>
@@ -408,7 +409,7 @@
 </script>
 
 @yield('js')
-
+@stack('js')
 </body>
 
 </html>
