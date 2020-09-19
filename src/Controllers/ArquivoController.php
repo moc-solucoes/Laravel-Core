@@ -5,6 +5,7 @@ namespace MOCSolutions\Core\Controllers;
 use App\Http\Controllers\Controller;
 use MOCSolutions\Core\Models\Arquivo;
 use MOCSolutions\Core\Models\Documento;
+use MOCSolutions\Core\Traits\ArquivoTrait;
 use MOCUtils\Helpers\HelperController;
 use MOCUtils\Helpers\SlackException;
 
@@ -14,6 +15,8 @@ use MOCUtils\Helpers\SlackException;
  */
 class ArquivoController extends Controller
 {
+    use ArquivoTrait;
+
     /**
      * Permission[administrar.arquivos]
      * @return \Illuminate\Http\JsonResponse
@@ -21,19 +24,7 @@ class ArquivoController extends Controller
     public function uploadAsync()
     {
         $helperController = new HelperController(function () {
-            $file = request()->anexo[0];
-
-            $arquivo = new Arquivo();
-            $arquivo->nome = $file->getClientOriginalName();
-            $fileName = uniqid() . '-' . $file->getClientOriginalName();
-            $arquivo->tipo = $file->getMimeType();
-            $arquivo->tamanho = $file->getSize();
-            $arquivo->extensao = $file->extension();
-            $arquivo->url = $fileName;
-            $file->move(storage_path() . DS . 'core' . DS . 'uploads', $fileName);
-            $arquivo->save();
-
-            return $arquivo;
+            return  $this->uploadAsyncProc();
         });
 
         $retorno = $helperController->getObject();
@@ -52,13 +43,7 @@ class ArquivoController extends Controller
     public function deleteAsync()
     {
         $helperController = new HelperController(function () {
-            $arquivoId = request()->get('data');
-
-            $arquivo = Arquivo::find($arquivoId);
-            $arquivoReturn = clone $arquivo;
-            $arquivo->delete();
-
-            return $arquivoReturn;
+            return $this->deleteAsyncProc();
         });
 
         $retorno = $helperController->getObject();
@@ -70,40 +55,6 @@ class ArquivoController extends Controller
         }
     }
 
-    /**
-     * @param $url
-     * @return false|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|string
-     */
-    public function selecionaArquivo($url)
-    {
-        return $this->selecionaPorExtensao($url);
-    }
-
-    /**
-     * @param $url
-     * @return false|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|string
-     */
-    public function selecionaArquivoExportacao($url)
-    {
-        return $this->selecionaPorExtensao($url, true);
-    }
-
-    /**
-     * @param $url
-     * @return false|string
-     */
-    public function retornaImagem($url, $externo = false)
-    {
-        $local = storage_path() . DS . 'core' . DS . 'uploads' . DS . $url;
-
-        if (file_exists($local)) {
-            $file = file_get_contents($local);
-        } else {
-            $file = file_get_contents(public_path("images") . '/imagem_nao_encontrada.jpg');
-        }
-
-        return $file;
-    }
 
     /**
      * @param $url
@@ -124,52 +75,9 @@ class ArquivoController extends Controller
         $local = $documento->contentType == 'application/pdf' ? 'inline' : 'attachment';
 
         return response()->make($file, 200, [
-//            'Content-Type' => $documento->contentType,
+            'Content-Type' => $documento->contentType,
             'Content-Length' => strlen($file),
             'Content-Disposition' => $local . '; filename="' . $documento->nome . '"'
         ]);
-    }
-
-    /**
-     * @param $url
-     * @return false|string
-     */
-    public function thumbPorNome($url)
-    {
-        return $this->retornaImagem($url);
-    }
-
-    /**
-     * @param $file
-     * @return false|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|string
-     */
-    private function selecionaPorExtensao($file, $externo = false)
-    {
-        $ext = substr($file, -4);
-
-        switch (strtolower($ext)) {
-            case ".jpg":
-            case "jpeg":
-            case ".png":
-            case ".gif":
-            case ".bmp":
-                $result = $this->retornaImagem($file, $externo);
-                break;
-            case ".doc":
-            case "docx":
-            case ".xls":
-            case "xlsx":
-            case "html":
-            case ".rtf":
-            case ".eps":
-            case ".zip":
-                $result = $this->retornaArquivo($file);
-                break;
-            default:
-                $result = $this->retornaArquivo($file);
-                break;
-        }
-
-        return $result;
     }
 }
