@@ -43,7 +43,7 @@ trait ArquivoTrait
         return $arquivoReturn;
     }
 
-    public function selecionaArquivoProc($url)
+    public function selecionaArquivo($url)
     {
         return $this->selecionaPorExtensao($url);
     }
