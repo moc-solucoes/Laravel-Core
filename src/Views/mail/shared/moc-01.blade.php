@@ -44,7 +44,7 @@
                                                         <tr>
                                                             <td valign='bottom' align='center' height='35'>
                                                                 <p style='font-size: 14px; font-family: Georgia, Times, serif; color: #ffffff; margin-top: 0px; margin-bottom: 0px;'>
-                                                                    {{(new \App\Http\Classes\Globais())->getMesNome(date("m"))}}
+                                                                    {{(new \MOCSolutions\Core\Classes\Globais())->getMesNome(date("m"))}}
                                                                 </p>
                                                             </td>
                                                         </tr>
