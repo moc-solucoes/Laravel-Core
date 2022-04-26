@@ -19,7 +19,7 @@
 
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
-    <link rel="stylesheet" href="{{asset(elixir('module/shared/css/able.layout.externo.css'))}}" type="text/css"
+    <link rel="stylesheet" href="{{asset(mix('module/shared/css/able.layout.externo.css'))}}" type="text/css"
           media="all">
 
     @yield('css')
@@ -159,7 +159,7 @@
 </div>
 <![endif]-->
 
-<script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.externo.js'))}}"></script>
+<script type="text/javascript" src="{{asset(mix('module/shared/js/able.layout.externo.js'))}}"></script>
 
 @if(env('INFO_LINKS', false))
     <script type="text/javascript">

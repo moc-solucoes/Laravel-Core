@@ -21,7 +21,7 @@
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset(elixir('module/shared/css/able.layout.interno.css'))}}" type="text/css"
+    <link rel="stylesheet" href="{{asset(mix('module/shared/css/able.layout.interno.css'))}}" type="text/css"
           media="all">
     @yield('css')
     @stack('css')
@@ -393,7 +393,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{asset(elixir('module/shared/js/able.layout.interno.js'))}}"></script>
+<script type="text/javascript" src="{{asset(mix('module/shared/js/able.layout.interno.js'))}}"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id='{{env('GOOGLE_ANALYTICS')}}'"></script>
 <script type="text/javascript">
     $('[data-toggle="tooltip"]').tooltip();
