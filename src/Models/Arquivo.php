@@ -10,6 +10,7 @@ namespace MOCSolutions\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -24,12 +25,18 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Arquivo extends Model
 {
     protected $table = 'core_arquivos';
-    protected static $logName = 'Core';
-    protected static $logAttributes = ['*'];
-    protected static $logAttributesToIgnore = ['updated_at'];
-    protected static $logOnlyDirty = true;
 
     use SoftDeletes, LogsActivity;
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logExcept(['updated_at'])
+            ->logOnly(['*'])
+            ->useLogName('Core')
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
+    }
 
     public function getByUrl($url)
     {

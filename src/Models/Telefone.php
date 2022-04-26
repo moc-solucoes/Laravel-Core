@@ -11,6 +11,7 @@ namespace MOCSolutions\Core\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use MOCSolutions\Auth\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -28,12 +29,17 @@ class Telefone extends Model
 {
     protected $table = 'ncl_telefones';
 
-    protected static $logName = 'Core';
-    protected static $logAttributes = ['*'];
-    protected static $logAttributesToIgnore = ['updated_at'];
-    protected static $logOnlyDirty = true;
-
     use SoftDeletes, LogsActivity;
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logExcept(['updated_at'])
+            ->logOnly(['*'])
+            ->useLogName('Core')
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
+    }
 
     public function Usuarios()
     {
