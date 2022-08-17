@@ -3,6 +3,7 @@
 namespace MOCSolutions\Core\Traits;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use MOCSolutions\Core\Models\Arquivo;
 use MOCSolutions\Core\Models\Documento;
 use MOCUtils\Helpers\HelperController;
@@ -16,7 +17,7 @@ trait ArquivoTrait
 {
     public function uploadAsyncProc()
     {
-        $file = request()->anexo[0];
+        $file = request()->file('anexo')[0];
 
         $arquivo = new Arquivo();
         $arquivo->nome = $file->getClientOriginalName();
@@ -25,7 +26,7 @@ trait ArquivoTrait
         $arquivo->tamanho = $file->getSize();
         $arquivo->extensao = $file->extension();
         $arquivo->url = $fileName;
-        $file->move(storage_path() . DS . 'core' . DS . 'uploads', $fileName);
+        $file->storeAs('core' . DS . 'uploads', $fileName);
         $arquivo->save();
 
         return $arquivo;
@@ -63,10 +64,10 @@ trait ArquivoTrait
      */
     public function retornaImagem($url, $externo = false)
     {
-        $local = storage_path() . DS . 'core' . DS . 'uploads' . DS . $url;
+        $local = 'core' . DS . 'uploads'. DS . $url ;
 
-        if (file_exists($local)) {
-            $file = file_get_contents($local);
+        if (Storage::exists($local)) {
+            $file = Storage::get($local);
         } else {
             $file = file_get_contents(public_path("images") . '/imagem_nao_encontrada.jpg');
         }

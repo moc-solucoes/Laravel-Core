@@ -3,11 +3,10 @@
 namespace MOCSolutions\Core\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use MOCSolutions\Core\Models\Arquivo;
-use MOCSolutions\Core\Models\Documento;
 use MOCSolutions\Core\Traits\ArquivoTrait;
 use MOCUtils\Helpers\HelperController;
-use MOCUtils\Helpers\SlackException;
 
 /**
  * Class ArquivoController
@@ -38,7 +37,7 @@ class ArquivoController extends Controller
 
     /**
      * Permission[administrar.arquivos]
-     * @return bool
+     * @return \Illuminate\Http\JsonResponse
      */
     public function deleteAsync()
     {
@@ -62,10 +61,10 @@ class ArquivoController extends Controller
      */
     public function retornaArquivo($url)
     {
-        $local = storage_path() . DS . 'core' . DS . 'uploads' . DS . $url;
+        $local = 'core' . DS . 'uploads'. DS . $url ;
 
-        if (file_exists($local)) {
-            $file = file_get_contents($local);
+        if (Storage::exists($local)) {
+            $file = Storage::get($local);
         } else {
             return redirect()->route('error.404');
         }
